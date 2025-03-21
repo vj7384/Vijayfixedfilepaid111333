@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIOCHEATS V1</title> <!-- Changed title here -->
+    <style>
+        /* Universal Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+        }
+
+        .login-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px 60px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        h2 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+
+        strong {
+            font-size: 18px;
+            color: #F39C12;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #ddd;
+            margin-bottom: 8px;
+            text-align: left;
+            display: block;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            background-color: #444;
+            border-color: #F39C12;
+            box-shadow: 0 0 8px rgba(243, 156, 18, 0.7);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #F39C12;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+            transform: translateY(-3px);
+        }
+
+        .extra-options {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .extra-options a {
+            text-decoration: none;
+            color: #F39C12;
+            margin-right: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .extra-options a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>RIOCHEATS V1</h2>
+        <p>Enter the 4-digit number displayed below</p>
+        <p>Your 4-digit number: <strong id="random-number"></strong></p>
+
+        <form id="login-form">
+            <div class="input-group">
+                <label for="digit-input">Enter Number</label>
+                <input type="text" id="digit-input" maxlength="4" placeholder="Enter 4-digit number" required>
+            </div>
+            <div class="input-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+
+        <div class="extra-options">
+            <a href="#">Forgot Number?</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </div>
+
+    <script>
+        // Generate a random 4-digit number
+        function generateRandomNumber() {
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('random-number').textContent = randomNum;
+            sessionStorage.setItem('correctNumber', randomNum); // Store the correct number temporarily
+        }
+
+        // Handle form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            const enteredNumber = document.getElementById('digit-input').value;
+            const correctNumber = sessionStorage.getItem('correctNumber');
+            
+            if (enteredNumber == correctNumber) {
+                // Redirect to your website after successful login
+                window.location.href = "https://riomandd.github.io/Rionewopen15kultrq/";
+            } else {
+                alert("Incorrect number. Please try again.");
+            }
+        });
+
+        window.onload = generateRandomNumber; // Generate the number when the page loads
+    </script>
+
+</body>
+</html>
